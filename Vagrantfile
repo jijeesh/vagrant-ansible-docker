@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # comment the following statement and uncomment the next one.
   #config.vm.synced_folder ".", "/vagrant"
   config.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=700,fmode=600"]
+  config.vm.synced_folder "C:/Users/jijeesh/.kube", "/home/vagrant/.kube", mount_options: ["dmode=700,fmode=600"]  
   config.vm.provider "virtualbox" do |v|
     v.memory = 1048
   end
