@@ -30,6 +30,11 @@ EOF
     usermod -aG docker vagrant
     
     sudo pip install -r /vagrant/ansible/requirements.txt
+    echo "source <(kubectl completion bash)" >> ~/.bashrc
+    #echo '[ -f /home/vagrant/kubectl_aliases ] && source /home/vagrant/kubectl_aliases' >> ~/.bashrc
+    # echo 'function kubectl() { echo "+ kubectl $@"; command kubectl $@; }' >> ~/.bashrc
+    echo 'alias k=kubectl'  >> ~/.bashrc
+    echo 'complete -F __start_kubectl k'  >> ~/.bashrc
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
