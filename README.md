@@ -7,5 +7,6 @@ https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20190905.0.0/providers/
 vagrant box add foo-box /path/to/vagrant-box.box
 vagrant init foo-box
 vagrant up
-
+# if you want to update from any changes from the vagrant file
+vagrant reload --provision-with shell
 ```

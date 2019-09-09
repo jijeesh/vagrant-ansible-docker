@@ -4,6 +4,6 @@ echo "Installing Ansible..."
 apt-get install -y software-properties-common
 #apt-add-repository ppa:ansible/ansible
 apt-get update
-apt-get install -y python-pip
-sudo pip install -r requirements.txt
+apt-get install -y python-pip bash-completion
+sudo pip install -r /vagrant/ansible/requirements.txt
 #cp /vagrant/ansible/ansible.cfg /etc/ansible/ansible.cfg
