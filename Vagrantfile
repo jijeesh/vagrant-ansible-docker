@@ -29,12 +29,11 @@ EOF
     # run docker commands as vagrant user (sudo not required)
     usermod -aG docker vagrant
     
-    sudo pip install -r /vagrant/ansible/requirements.txt
     echo "source <(kubectl completion bash)" >> ~/.bashrc
-    #echo '[ -f /home/vagrant/kubectl_aliases ] && source /home/vagrant/kubectl_aliases' >> ~/.bashrc
-    # echo 'function kubectl() { echo "+ kubectl $@"; command kubectl $@; }' >> ~/.bashrc
     echo 'alias k=kubectl'  >> ~/.bashrc
     echo 'complete -F __start_kubectl k'  >> ~/.bashrc
+    sudo pip install -r /vagrant/ansible/requirements.txt
+    
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -43,7 +42,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # comment the following statement and uncomment the next one.
   #config.vm.synced_folder ".", "/vagrant"
   config.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=700,fmode=600"]
-  config.vm.synced_folder "C:/Users/jijeesh/.kube", "/home/vagrant/.kube", mount_options: ["dmode=700,fmode=600"]  
+  config.vm.synced_folder "C:/Users/jijeesh/.kube", "/home/vagrant/.kube", mount_options: ["dmode=700,fmode=600"]
+  config.vm.synced_folder "E:/codes", "/vagrant/codes", mount_options: ["dmode=700,fmode=600"]  
   config.vm.provider "virtualbox" do |v|
     v.memory = 1048
   end
